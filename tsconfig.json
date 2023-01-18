@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./src",
+        "lib": ["esnext", "dom"],
+        "module": "esnext",
+        "moduleResolution": "node",
+        "target": "es2022",
+        "types": [
+            "vite/client",
+        ]
+    },
+    "include": [
+        "src/components/**/*",
+        "src/composables/**/*",
+        "src/theme/**/*",
+        "src/ui/**/*",
+    ]
+}

@@ -1,0 +1,33 @@
+{
+    "name": "@lumite-studios/chimera",
+    "version": "1.0.0",
+    "description": "",
+    "main": "./index.ts",
+    "typings": "./typings.d.ts",
+    "scripts": {
+        "storybook": "NODE_OPTIONS='--openssl-legacy-provider' start-storybook -p 6006",
+        "build-storybook": "build-storybook"
+    },
+    "dependencies": {
+        "@heroicons/vue": "^2.0.13",
+        "@vueuse/core": "^9.8.2",
+        "tailwindcss": "^3.2.4",
+        "vue": "^3.2.45",
+        "vue3-markdown-it": "^1.0.10"
+    },
+    "devDependencies": {
+        "@storybook/addon-actions": "^6.5.15",
+        "@storybook/addon-essentials": "^6.5.15",
+        "@storybook/addon-interactions": "^6.5.15",
+        "@storybook/addon-links": "^6.5.15",
+        "@storybook/addon-postcss": "^2.0.0",
+        "@storybook/builder-vite": "^0.2.6",
+        "@storybook/testing-library": "^0.0.13",
+        "@storybook/vue3": "^6.5.15",
+        "@vitejs/plugin-vue": "^3.2.0",
+        "lodash.kebabcase": "^4.1.1",
+        "postcss": "^8.4.20",
+        "storybook-darkmode-vue": "^1.1.8",
+        "vite": "^3.2.5"
+    }
+}
