@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, provide, ref } from 'vue'
+import { computed, provide, ref, watch } from 'vue'
 import tabsProps, { injectTabsName, TabsProps } from './tabs.typings'
 import useApplyFlexParent from '../../composables/methods/classes/useApplyFlexParent'
 import useApplyColor from '../../composables/methods/styles/useApplyColor'
@@ -47,5 +47,9 @@ provide(injectTabsName, {
         activeTab,
         setActiveTab,
     }
+})
+
+watch(setProps, () => {
+    console.log(setProps)
 })
 </script>

@@ -14,11 +14,6 @@ export interface AvatarGroupProps extends
 {}
 
 export interface AvatarProps extends
-    BorderProps,
-    ColorProps,
-    ComponentProps,
-    RoundedProps,
-    SizeProps,
     SrcProps
 {}
 

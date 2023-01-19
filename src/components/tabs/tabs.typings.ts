@@ -38,11 +38,6 @@ export const tabsProps = {
     ...usePaddingProps(),
     ...useRoundedProps(),
     ...{
-        tabs: {
-            type: Array<string>,
-            required: true
-        },
-
         vertical: {
             type: Boolean,
             default: false
@@ -51,6 +46,7 @@ export const tabsProps = {
 }
 
 export const tabsTabProps = {
+    ...useColorProps(tabsPropsOptions.color),
     ...usePaddingProps(),
     ...useValueProps(),
 }
