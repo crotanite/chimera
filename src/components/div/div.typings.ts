@@ -51,7 +51,7 @@ export const divProps = {
     ...useGapProps({ gap: null, gapX: null, gapY: null }),
     ...useGridChildProps(),
     ...useGridParentProps(),
-    ...useHeightProps({ height: null, maxHeight: null }, true),
+    ...useHeightProps(['height', 'maxHeight']),
     ...useHoverProps({ hover: false }),
     ...useOrderProps({ order: null }),
     ...usePaddingProps(),
