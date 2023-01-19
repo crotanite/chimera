@@ -5,16 +5,18 @@ export interface HeightProps {
     maxHeight?: null|number|string
 }
 
-export default function useHeightProps (props: HeightProps = null, includeMaxHeight: boolean = true) {
+export default function useHeightProps (includeProps: Array<string> = ['height']) {
     return {
-        height: {
-            type: [Number, String, Object as () => Sizes<number|string>],
-            default: props === null || !props.hasOwnProperty('height') ? null : props.height,
-        },
-        ...(includeMaxHeight ? {
+        ...(includeProps.includes('height') ? {
+            height: {
+                type: [Number, String, Object as () => Sizes<number|string>],
+                default: undefined,
+            },
+        } : {}),
+        ...(includeProps.includes('maxHeight') ? {
             maxHeight: {
                 type: [Number, String],
-                default: props === null || !props.hasOwnProperty('maxHeight') ? null : props.maxHeight,
+                default: undefined,
             },
         } : {}),
     }

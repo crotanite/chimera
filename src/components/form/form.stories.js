@@ -108,6 +108,7 @@ InputWithLabel.args = {
     ...disabledArgs(formInputProps),
     ...errorArgs({ error: 'Incorrect Input' }),
     ...modelValueArgs({ modelValue: 'Input' }),
+    withoutHeight: false,
 }
 InputWithLabel.argTypes = {
     ...labelArgTypes(formInputProps),

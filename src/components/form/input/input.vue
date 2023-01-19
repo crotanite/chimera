@@ -1,7 +1,8 @@
 <template>
     <input
         :class="form.classes()"
-        :style="form.styles(hasError).value"
+        :style="form.styles(hasError, !withoutHeight, props.disabled).value"
+        :disabled="props.disabled"
         :placeholder="props.placeholder ?? props.name"
         :type="props.type"
         :value="props.modelValue"

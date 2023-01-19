@@ -3,6 +3,7 @@ import useBorderProps, { BorderProps } from '../../composables/props/useBorderPr
 import useComponentProps, { ComponentProps } from '../../composables/props/useComponentProps'
 import useDisabledProps, { DisabledProps } from '../../composables/props/useDisabledProps'
 import useErrorProps, { ErrorProps } from '../../composables/props/useErrorProps'
+import useHeightProps, { HeightProps } from '../../composables/props/useHeightProps'
 import useModelValueProps, { ModelValueProps } from '../../composables/props/useModelValueProps'
 import usePaddingProps, { PaddingProps } from '../../composables/props/usePaddingProps'
 import useRoundedProps, { RoundedProps } from '../../composables/props/useRoundedProps'
@@ -11,6 +12,7 @@ import useSpacingProps, { SpacingProps } from '../../composables/props/useSpacin
 export interface FormProps extends
     BorderProps,
     ComponentProps,
+    HeightProps,
     PaddingProps,
     RoundedProps,
     SpacingProps
@@ -37,6 +39,7 @@ export const formPropsOptions = {
 export const formProps = {
     ...useBorderProps(),
     ...useComponentProps(),
+    ...useHeightProps(),
     ...usePaddingProps(),
     ...useRoundedProps(),
     ...useSpacingProps(formPropsOptions.spacing),

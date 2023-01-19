@@ -5,6 +5,7 @@ export interface FormInputProps extends
     FormGlobalInputProps<null|string>
 {
     type?: string
+    withoutHeight?: boolean
 }
 
 export interface FormInputWithLabelProps extends
@@ -19,6 +20,11 @@ export const formInputProps = {
         type: {
             type: String,
             default: 'text'
+        },
+
+        withoutHeight: {
+            type: Boolean,
+            default: false,
         }
     }
 }

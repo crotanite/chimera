@@ -569,9 +569,10 @@ export const ChimeraTheme: Theme = {
         form: {
             border: 1,
             component: 'form',
+            height: 38,
             p: null,
-            px: 'md',
-            py: null,
+            px: 'sm',
+            py: 'xs',
             rounded: null,
             spacingY: 3,
         },

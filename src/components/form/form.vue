@@ -13,6 +13,7 @@ import formProps, { FormProps } from './form.typings'
 import useApplyBorder from '../../composables/methods/styles/useApplyBorder'
 import useApplyColor from '../../composables/methods/styles/useApplyColor'
 import useApplyDisabled from '../../composables/methods/styles/useApplyDisabled'
+import useApplyHeight from '../../composables/methods/styles/useApplyHeight'
 import useApplyPadding from '../../composables/methods/styles/useApplyPadding'
 import useApplyRounded from '../../composables/methods/styles/useApplyRounded'
 import useApplySpacing from '../../composables/methods/classes/useApplySpacing'
@@ -30,10 +31,9 @@ const classes = computed(() => {
 const inputClasses = (withHeight: boolean = true) => {
     return [
         'overflow-hidden text-sm',
-        withHeight ? 'h-[38px]' : null,
     ]
 }
-const inputStyles = (hasError: null|boolean = null, disabled: boolean = false) => {
+const inputStyles = (hasError: null|boolean = null, withHeight: boolean = true, disabled: boolean = false) => {
     return computed(() => {
         return {
             ...useApplyColor(null, {
@@ -48,6 +48,7 @@ const inputStyles = (hasError: null|boolean = null, disabled: boolean = false) =
             }, 'system', 'filled', null, hasError !== null && hasError ? 'red' : null),
             ...useApplyBorder(props.border),
             ...useApplyDisabled(disabled),
+            ...(withHeight && useApplyHeight(props.height)),
             ...useApplyPadding(props.p, props.px, props.py),
             ...useApplyRounded(props.rounded),
         }
