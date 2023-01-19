@@ -56,7 +56,7 @@ export const system: States = {
         },
         transparent: {
             lightBackgroundColor: null,
-            lightBorderColor: 200,
+            lightBorderColor: 0,
             lightTextColor: 900,
             lightShadowColor: 200,
             darkBackgroundColor: null,
@@ -83,8 +83,8 @@ export const system: States = {
             darkTextColor: 0
         },
         transparent: {
-            lightBackgroundColor: '200/75',
-            lightBorderColor: '200/75',
+            lightBackgroundColor: '0/75',
+            lightBorderColor: '0/75',
             lightTextColor: 700,
             darkBackgroundColor: '900/75',
             darkBorderColor: '900/75',
