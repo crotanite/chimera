@@ -1,8 +1,8 @@
-import { formGlobalInputProps, FormGlobalInputProps } from '../form.typings'
+import { formGlobalInputProps, FormGlobalItemProps } from '../form.typings'
 import useLabelProps, { LabelProps } from '../../../composables/props/useLabelProps'
 
 export interface FormInputProps extends
-    FormGlobalInputProps<null|string>
+    FormGlobalItemProps<null|string>
 {
     type?: string
     withoutHeight?: boolean

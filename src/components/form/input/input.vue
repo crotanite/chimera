@@ -1,7 +1,7 @@
 <template>
     <input
-        :class="form.classes()"
-        :style="form.styles(hasError, !withoutHeight, props.disabled).value"
+        :class="inputClasses()"
+        :style="inputStyles(props, hasError, !withoutHeight, props.disabled).value"
         :disabled="props.disabled"
         :placeholder="props.placeholder ?? props.name"
         :type="props.type"
@@ -10,15 +10,14 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject } from 'vue'
+import { computed } from 'vue'
 import formInputProps, { FormInputProps } from './input.typings'
-import { FormInject } from '../form.typings'
+import { inputClasses, inputStyles } from '../form.typings'
 import useGenerateProps from '../../../composables/useGenerateProps'
 
 const setProps = defineProps(formInputProps)
-const props = useGenerateProps(setProps, 'formInput') as FormInputProps
+const props = useGenerateProps(setProps, 'formInput', 'form') as FormInputProps
 const emits = defineEmits(['update:modelValue'])
-const form = inject('form', null) as FormInject
 
 const hasError = computed((): boolean => props.error !== null && props.error !== '')
 const updateValue = (event: Event): void => {

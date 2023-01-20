@@ -8,14 +8,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ComputedRef, provide } from 'vue'
+import { computed, provide } from 'vue'
 import formProps, { FormProps } from './form.typings'
-import useApplyBorder from '../../composables/methods/styles/useApplyBorder'
-import useApplyColor from '../../composables/methods/styles/useApplyColor'
-import useApplyDisabled from '../../composables/methods/styles/useApplyDisabled'
-import useApplyHeight from '../../composables/methods/styles/useApplyHeight'
-import useApplyPadding from '../../composables/methods/styles/useApplyPadding'
-import useApplyRounded from '../../composables/methods/styles/useApplyRounded'
 import useApplySpacing from '../../composables/methods/classes/useApplySpacing'
 import useGenerateProps from '../../composables/useGenerateProps'
 
@@ -28,34 +22,5 @@ const classes = computed(() => {
         useApplySpacing(null, null, props.spacingY),
     ]
 })
-const inputClasses = (withHeight: boolean = true) => {
-    return [
-        'overflow-hidden text-sm',
-    ]
-}
-const inputStyles = (hasError: null|boolean = null, withHeight: boolean = true, disabled: boolean = false) => {
-    return computed(() => {
-        return {
-            ...useApplyColor(null, {
-                system: {
-                    default: {
-                        filled: {
-                            lightBorderColor: 200,
-                            darkBorderColor: 700
-                        }
-                    }
-                }
-            }, 'system', 'filled', null, hasError !== null && hasError ? 'red' : null),
-            ...useApplyBorder(props.border),
-            ...useApplyDisabled(disabled),
-            ...(withHeight && useApplyHeight(props.height)),
-            ...useApplyPadding(props.p, props.px, props.py),
-            ...useApplyRounded(props.rounded),
-        }
-    })
-}
-provide('form', {
-    classes: inputClasses,
-    styles: inputStyles,
-})
+provide('form', props)
 </script>

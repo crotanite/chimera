@@ -8,6 +8,12 @@ import useModelValueProps, { ModelValueProps } from '../../composables/props/use
 import usePaddingProps, { PaddingProps } from '../../composables/props/usePaddingProps'
 import useRoundedProps, { RoundedProps } from '../../composables/props/useRoundedProps'
 import useSpacingProps, { SpacingProps } from '../../composables/props/useSpacingProps'
+import useApplyBorder from '../../composables/methods/styles/useApplyBorder'
+import useApplyColor from '../../composables/methods/styles/useApplyColor'
+import useApplyDisabled from '../../composables/methods/styles/useApplyDisabled'
+import useApplyHeight from '../../composables/methods/styles/useApplyHeight'
+import useApplyPadding from '../../composables/methods/styles/useApplyPadding'
+import useApplyRounded from '../../composables/methods/styles/useApplyRounded'
 
 export interface FormProps extends
     BorderProps,
@@ -18,7 +24,7 @@ export interface FormProps extends
     SpacingProps
 {}
 
-export interface FormGlobalInputProps<T> extends
+export interface FormGlobalItemProps<T> extends
     DisabledProps,
     ErrorProps,
     ModelValueProps<T>
@@ -63,6 +69,11 @@ export function formGlobalItemProps<T> (modelValueDefault: T = null) {
 export function formGlobalInputProps<T> (modelValueDefault: T = null) {
     return {
         ...formGlobalItemProps<T>(modelValueDefault),
+        ...useBorderProps(),
+        ...useComponentProps(),
+        ...useHeightProps(),
+        ...usePaddingProps(),
+        ...useRoundedProps(),
         ...{
             placeholder: {
                 type: String,
@@ -70,6 +81,34 @@ export function formGlobalInputProps<T> (modelValueDefault: T = null) {
             }
         }
     }
+}
+
+export const inputClasses = () => {
+    return [
+        'overflow-hidden text-sm',
+    ]
+}
+
+export const inputStyles = (props: object, hasError: null|boolean = null, withHeight: boolean = true, disabled: boolean = false) => {
+    return computed(() => {
+        return {
+            ...useApplyColor(null, {
+                system: {
+                    default: {
+                        filled: {
+                            lightBorderColor: 200,
+                            darkBorderColor: 700
+                        }
+                    }
+                }
+            }, 'system', 'filled', null, hasError !== null && hasError ? 'red' : null),
+            ...useApplyBorder(props.border),
+            ...useApplyDisabled(disabled),
+            ...(withHeight && useApplyHeight(props.height)),
+            ...useApplyPadding(props.p, props.px, props.py),
+            ...useApplyRounded(props.rounded),
+        }
+    })
 }
 
 export default formProps
