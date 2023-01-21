@@ -5,6 +5,7 @@
         :disabled="props.disabled"
         :placeholder="props.placeholder ?? props.name"
         :type="props.type"
+        :value="setProps.modelValue"
         @input="updateValue($event)"
     />
 </template>
