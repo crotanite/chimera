@@ -21,7 +21,7 @@ const props = useGenerateProps(setProps, 'grid') as GridProps
 const classes = computed((): Array<string> => {
     return [
         '',
-        useApplyGridParent(props.grid, props.cols, props.flow, props.rows)
+        useApplyGridParent(true, props.cols, props.flow, props.rows)
     ]
 })
 const styles = computed((): Object => {
