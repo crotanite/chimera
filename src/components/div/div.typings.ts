@@ -14,6 +14,7 @@ import useOrderProps, { OrderProps } from '../../composables/props/useOrderProps
 import usePaddingProps, { PaddingProps } from '../../composables/props/usePaddingProps'
 import useRoundedProps, { RoundedProps } from '../../composables/props/useRoundedProps'
 import useShadowProps, { ShadowProps } from '../../composables/props/useShadowProps'
+import useSpacingProps, { SpacingProps } from '../../composables/props/useSpacingProps'
 import useWidthProps, { WidthProps } from '../../composables/props/useWidthProps'
 
 export interface DivProps extends
@@ -38,6 +39,9 @@ export interface DivProps extends
 
 export const divPropsOptions = {
     color: ['color', 'variant', 'backgroundColor', 'borderColor', 'textColor', 'shadowColor'],
+    flexParent: ['flex', 'flexDirection', 'flexItems', 'flexJustify', 'flexWrap'],
+    gridParent: ['grid', 'cols', 'flow', 'rows'],
+    spacing: ['spacing', 'spacingX', 'spacingY'],
 }
 
 export const divProps = {
@@ -46,17 +50,18 @@ export const divProps = {
     ...useComponentProps(),
     ...useContentProps(),
     ...useFlexChildProps(),
-    ...useFlexParentProps(),
+    ...useFlexParentProps(divPropsOptions.flexParent),
     ...useForceTextProps({ forceText: null }),
-    ...useGapProps({ gap: null, gapX: null, gapY: null }),
+    ...useGapProps(),
     ...useGridChildProps(),
-    ...useGridParentProps(),
+    ...useGridParentProps(divPropsOptions.gridParent),
     ...useHeightProps(['height', 'maxHeight']),
     ...useHoverProps({ hover: false }),
     ...useOrderProps({ order: null }),
     ...usePaddingProps(),
     ...useRoundedProps(),
     ...useShadowProps(),
+    ...useSpacingProps(divPropsOptions.spacing),
     ...useWidthProps({ width: null, maxWidth: null }, true),
 }
 

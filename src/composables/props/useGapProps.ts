@@ -6,7 +6,7 @@ export interface GapProps {
     gapY?: null|string
 }
 
-export default function useGapProps (props: GapProps = null) {
+export default function useGapProps () {
     return {
         gap: {
             type: String,
