@@ -77,9 +77,9 @@ const styles = computed(() => {
  * @param defaultValue The default value to use.
  */
 const getPropState = (prop: string, defaultValue: any = null) => {
-    return props[prop] === null || typeof props[prop] === 'undefined'
+    return props.value[prop] === null || typeof props.value[prop] === 'undefined'
         ? (buttonGroup === null ? defaultValue : buttonGroup[prop])
-        : props[prop]
+        : props.value[prop]
 }
 
 watch(setProps, () => {
