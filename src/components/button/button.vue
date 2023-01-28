@@ -35,12 +35,10 @@ import useApplyDisabled from '../../composables/methods/styles/useApplyDisabled'
 import useApplyRounded from '../../composables/methods/styles/useApplyRounded'
 import useApplyShadow from '../../composables/methods/styles/useApplyShadow'
 import useApplySizePadding from '../../composables/methods/styles/useApplySizePadding'
-import useGetThemeProperty from '../../composables/useGetThemeProperty'
 import useGenerateProps from '../../composables/useGenerateProps'
 
-// const buttonGroupProps = useGetThemeProperty('ui.buttonGroup') as ButtonGroupProps
 const setProps = defineProps(buttonProps)
-const props = useGenerateProps(setProps, 'button', 'buttonGroup') as ButtonProps
+const props = ref<ButtonProps>(useGenerateProps(setProps, 'button', 'buttonGroup') as ButtonProps)
 
 const buttonGroup = inject(injectButtonGroupName, null) as null|ButtonGroupProps
 const hover = ref<boolean>(false)
@@ -87,7 +85,7 @@ const getPropState = (prop: string, defaultValue: any = null) => {
 watch(setProps, () => {
     for (const [key, value] of Object.entries(setProps)) {
         if(typeof value !== 'undefined' && props[key] !== value) {
-            props[key] = value
+            props.value[key] = value
         }
     }
 })
