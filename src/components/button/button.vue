@@ -38,9 +38,9 @@ import useApplySizePadding from '../../composables/methods/styles/useApplySizePa
 import useGetThemeProperty from '../../composables/useGetThemeProperty'
 import useGenerateProps from '../../composables/useGenerateProps'
 
-const buttonGroupProps = useGetThemeProperty('ui.buttonGroup') as ButtonGroupProps
+// const buttonGroupProps = useGetThemeProperty('ui.buttonGroup') as ButtonGroupProps
 const setProps = defineProps(buttonProps)
-const props = useGenerateProps(setProps, 'button') as ButtonProps
+const props = useGenerateProps(setProps, 'button', 'buttonGroup') as ButtonProps
 
 const buttonGroup = inject(injectButtonGroupName, null) as null|ButtonGroupProps
 const hover = ref<boolean>(false)
@@ -48,27 +48,27 @@ const classes = computed((): Array<string> => {
     return [
         'bg-clip-padding cursor-pointer font-bold inline-flex space-x-1 items-center text-center',
         buttonGroup !== null ? '!rounded-none' : '',
-        useApplyForceText(getPropState('forceText', buttonGroupProps.forceText)),
-        getPropState('disabled', buttonGroupProps.disabled) ? '' : useApplyLoading(getPropState('loading', buttonGroupProps.loading)),
-        useApplySizeFontSize(getPropState('size', buttonGroupProps.size)),
+        useApplyForceText(getPropState('forceText')),
+        getPropState('disabled') ? '' : useApplyLoading(getPropState('loading')),
+        useApplySizeFontSize(getPropState('size')),
     ]
 })
 const styles = computed(() => {
     return {
-        ...useApplyDisabled(getPropState('disabled', buttonGroupProps.disabled)),
-        ...useApplyBorder(getPropState('border', buttonGroupProps.border)),
-        ...useApplyRounded(getPropState('rounded', buttonGroupProps.rounded)),
-        ...useApplySizePadding(getPropState('size', buttonGroupProps.size), getPropState('dense', buttonGroupProps.dense)),
-        ...useApplyShadow(getPropState('shadow', buttonGroupProps.shadow)),
-        ...getPropState('disabled', buttonGroupProps.disabled) ? {} : useApplyColor(
-            getPropState('loading', buttonGroupProps.loading) ? null : hover,
+        ...useApplyDisabled(getPropState('disabled')),
+        ...useApplyBorder(getPropState('border')),
+        ...useApplyRounded(getPropState('rounded')),
+        ...useApplySizePadding(getPropState('size'), getPropState('dense')),
+        ...useApplyShadow(getPropState('shadow')),
+        ...getPropState('disabled') ? {} : useApplyColor(
+            getPropState('loading') ? null : hover,
             null,
-            getPropState('color', buttonGroupProps.color),
-            getPropState('variant', buttonGroupProps.variant),
-            getPropState('backgroundColor', buttonGroupProps.backgroundColor),
-            getPropState('borderColor', buttonGroupProps.borderColor),
-            getPropState('textColor', buttonGroupProps.textColor),
-            getPropState('shadowColor', buttonGroupProps.shadowColor),
+            getPropState('color'),
+            getPropState('variant'),
+            getPropState('backgroundColor'),
+            getPropState('borderColor'),
+            getPropState('textColor'),
+            getPropState('shadowColor'),
         ),
     }
 })
