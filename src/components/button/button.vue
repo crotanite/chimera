@@ -85,7 +85,13 @@ const getPropState = (prop: string, defaultValue: any = null) => {
 }
 
 watch(setProps, () => {
-    console.log('here')
+    const diff = []
+    for (const [key, value] of Object.entries(setProps)) {
+        if(props[key] !== value) {
+            diff.push(key, value)
+        }
+    }
+    console.log(diff)
 })
 </script>
 
