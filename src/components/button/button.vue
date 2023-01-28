@@ -23,7 +23,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, ref } from 'vue'
+import { computed, inject, ref, watch } from 'vue'
 import { UtilComponentWithLoading } from '../utilities'
 import buttonProps, { injectButtonGroupName, ButtonProps, ButtonGroupProps } from './button.typings'
 import useApplyForceText from '../../composables/methods/classes/useApplyForceText'
@@ -83,6 +83,10 @@ const getPropState = (prop: string, defaultValue: any = null) => {
         ? (buttonGroup === null ? defaultValue : buttonGroup[prop])
         : props[prop]
 }
+
+watch(setProps, () => {
+    console.log('here')
+})
 </script>
 
 <script lang="ts">
