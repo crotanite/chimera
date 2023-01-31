@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import divProps, { DivProps } from  './div.typings'
 import useApplyFlexChild from '../../composables/methods/classes/useApplyFlexChild'
 import useApplyFlexParent from '../../composables/methods/classes/useApplyFlexParent'
@@ -31,34 +31,42 @@ import useApplyWidth from '../../composables/methods/styles/useApplyWidth'
 import useGenerateProps from '../../composables/useGenerateProps'
 
 const setProps = defineProps(divProps)
-const props = useGenerateProps(setProps, 'div') as DivProps
+const props = ref<DivProps>(useGenerateProps(setProps, 'div') as DivProps)
 
 const hover = ref<boolean>(false)
 const classes = computed((): Array<string> => {
     return [
         'bg-clip-padding overflow-hidden',
-        useApplyFlexChild(props.grow, props.shrink),
-        useApplyFlexParent(props.flex, props.flexDirection, props.flexItems, props.flexJustify, props.flexWrap),
-        useApplyForceText(props.forceText),
-        useApplyGridParent(props.grid, props.cols, props.flow, props.rows),
-        useApplyOrder(props.order),
+        useApplyFlexChild(props.value.grow, props.value.shrink),
+        useApplyFlexParent(props.value.flex, props.value.flexDirection, props.value.flexItems, props.value.flexJustify, props.value.flexWrap),
+        useApplyForceText(props.value.forceText),
+        useApplyGridParent(props.value.grid, props.value.cols, props.value.flow, props.value.rows),
+        useApplyOrder(props.value.order),
     ]
 })
 const styles = computed((): object => {
     return {
-        ...useApplyBorder(props.border),
+        ...useApplyBorder(props.value.border),
         ...useApplyColor(
-            props.hover ? hover : null, null,
-            props.color, props.variant, props.backgroundColor, props.borderColor, props.textColor, props.shadowColor
+            props.value.hover ? hover : null, null,
+            props.value.color, props.value.variant, props.value.backgroundColor, props.value.borderColor, props.value.textColor, props.value.shadowColor
         ),
-        ...useApplyGap(props.gap, props.gapX, props.gapY),
-        ...useApplyHeight(props.height),
-        ...useApplyMaxHeight(props.maxHeight),
-        ...useApplyMaxWidth(props.maxWidth),
-        ...useApplyPadding(props.p, props.px, props.py),
-        ...useApplyRounded(props.rounded),
-        ...useApplyShadow(props.shadow),
-        ...useApplyWidth(props.width),
+        ...useApplyGap(props.value.gap, props.value.gapX, props.value.gapY),
+        ...useApplyHeight(props.value.height),
+        ...useApplyMaxHeight(props.value.maxHeight),
+        ...useApplyMaxWidth(props.value.maxWidth),
+        ...useApplyPadding(props.value.p, props.value.px, props.value.py),
+        ...useApplyRounded(props.value.rounded),
+        ...useApplyShadow(props.value.shadow),
+        ...useApplyWidth(props.value.width),
+    }
+})
+
+watch(setProps, () => {
+    for (const [key, value] of Object.entries(setProps)) {
+        if(typeof value !== 'undefined' && props[key] !== value) {
+            props.value[key] = value
+        }
     }
 })
 </script>
