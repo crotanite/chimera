@@ -24,7 +24,6 @@ declare module "@lumite-studios/chimera" {
     export const ChiLink: any
     export const ChiList: any
     export const ChiListItem: any
-    export const ChiMarkdown: any
     export const ChiOffcanvas: any
     export const ChiOffcanvasContent: any
     export const ChiOffcanvasDrawer: any
