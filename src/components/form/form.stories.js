@@ -33,6 +33,8 @@ export const Default = (args) => ({
         ChiForm,
         'ChiForm.Input': ChiForm.Input,
         'ChiForm.InputWithLabel': ChiForm.InputWithLabel,
+        'ChiForm.NativeSelect': ChiForm.NativeSelect,
+        'ChiForm.NativeSelectWithLabel': ChiForm.NativeSelectWithLabel,
         'ChiForm.Toggle': ChiForm.Toggle,
         'ChiForm.ToggleWithLabel': ChiForm.ToggleWithLabel,
     },
@@ -51,6 +53,18 @@ export const Default = (args) => ({
         name="input-2"
         type="email"
     />
+    <ChiForm.NativeSelectWithLabel
+        description="Select an option"
+        error="Incorrect selection"
+        label="Select With Label"
+    >
+        <option value="first">First</option>
+        <option value="second">Second</option>
+    </ChiForm.NativeSelectWithLabel>
+    <ChiForm.NativeSelect>
+        <option value="first">First</option>
+        <option value="second">Second</option>
+    </ChiForm.NativeSelect>
     <ChiForm.Toggle name="toggle-1" />
     <ChiForm.ToggleWithLabel
         description="Select"

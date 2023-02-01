@@ -9,12 +9,12 @@ import { FormProps } from '../components/form'
 import { FormErrorProps } from '../components/form/error'
 import { FormInputProps } from '../components/form/input'
 import { FormLabelProps } from '../components/form/label'
+import { FormNativeSelectProps } from '../components/form/native-select'
 import { FormToggleProps } from '../components/form/toggle'
 import { GridProps } from '../components/grid'
 import { HeadingProps } from '../components/heading'
 import { LinkProps } from '../components/link'
 import { ListProps, ListItemProps } from '../components/list'
-import { MarkdownProps } from '../components/markdown'
 import { OffcanvasProps, OffcanvasDrawerProps, OffcanvasContentProps } from '../components/offcanvas'
 import { ScreenProps } from '../components/screen'
 import { TabsProps, TabsTabProps } from '../components/tabs'
@@ -106,13 +106,13 @@ export interface Theme {
         formError: FormErrorProps,
         formInput: FormInputProps,
         formLabel: FormLabelProps,
+        formNativeSelect: FormNativeSelectProps,
         formToggle: FormToggleProps,
         grid: GridProps,
         heading: HeadingProps,
         link: LinkProps,
         list: ListProps,
         listItem: ListItemProps,
-        markdown: MarkdownProps,
         offcanvas: OffcanvasProps,
         offcanvasContent: OffcanvasContentProps,
         offcanvasDrawer: OffcanvasDrawerProps,
@@ -458,14 +458,10 @@ export const ChimeraTheme: Theme = {
             disabled: false,
         }, // inherits from "accordion"
         accordionTitle: {
-            color: null,
             component: 'div',
-            variant: null,
         },
         accordionPanel: {
-            color: null,
             component: 'div',
-            variant: 'pale',
         },
         alert: {
             border: 0,
@@ -577,10 +573,9 @@ export const ChimeraTheme: Theme = {
             spacingY: 3,
         },
         formError: {},
-        formInput: {
-            disabled: false,
-        },
+        formInput: {},
         formLabel: {},
+        formNativeSelect: {},
         formToggle: {
             color: 'primary',
             variant: 'filled',
@@ -618,7 +613,6 @@ export const ChimeraTheme: Theme = {
             component: 'div',
             spacingX: 3,
         }, // inherits from "list"
-        markdown: {},
         offcanvas: {},
         offcanvasContent: {
             p: 'md',
