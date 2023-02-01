@@ -48,8 +48,4 @@ provide(injectTabsName, {
         setActiveTab,
     }
 })
-
-watch(setProps, () => {
-    console.log(setProps)
-})
 </script>

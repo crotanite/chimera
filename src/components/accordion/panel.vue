@@ -14,7 +14,6 @@
 <script setup lang="ts">
 import { computed, CSSProperties, HTMLAttributes, inject, ref } from 'vue'
 import { injectAccordionItemName, panelProps, AccordionPanelProps, InjectedAccordionItem } from './accordion.typings'
-import useApplyColor from '../../composables/methods/styles/useApplyColor'
 import useApplyPadding from '../../composables/methods/styles/useApplyPadding'
 import useGenerateProps from '../../composables/useGenerateProps'
 
@@ -38,14 +37,6 @@ const classes = computed((): Array<string> => {
 const styles = computed(() => {
     return {
         ...{ height: item.isOpen.value ? `${el.value.scrollHeight}px` : 0 },
-        ...useApplyColor(null, null,
-            getPropState('color'),
-            getPropState('variant'),
-            getPropState('backgroundColor'),
-            getPropState('borderColor'),
-            getPropState('textColor'),
-            getPropState('shadowColor')
-        ),
     }
 })
 const innerStyles = computed(() => {

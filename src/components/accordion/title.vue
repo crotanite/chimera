@@ -23,7 +23,6 @@
 import { computed, inject } from 'vue'
 import { ChevronDownIcon } from '@heroicons/vue/24/outline'
 import { injectAccordionItemName, titleProps, AccordionTitleProps, InjectedAccordionItem } from './accordion.typings'
-import useApplyColor from '../../composables/methods/styles/useApplyColor'
 import useApplyPadding from '../../composables/methods/styles/useApplyPadding'
 import useGenerateProps from '../../composables/useGenerateProps'
 
@@ -44,14 +43,6 @@ const classes = computed((): Array<string> => {
 })
 const styles = computed((): object => {
     return {
-        ...useApplyColor(null, null,
-            getPropState('color'),
-            getPropState('variant'),
-            getPropState('backgroundColor'),
-            getPropState('borderColor'),
-            getPropState('textColor'),
-            getPropState('shadowColor')
-        ),
         ...(getPropState('unstyled', false) ? {} : {
             ...useApplyPadding(getPropState('p'), getPropState('px'), getPropState('py'))
         })

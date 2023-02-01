@@ -61,7 +61,7 @@ export const Default = (args) => ({
     setup() { return { args } },
     template: `
 <ChiAccordion v-bind="args">
-    <ChiAccordion.Item value="first">
+    <ChiAccordion.Item class="border-l-2" border-color="red" value="first">
         <ChiAccordion.Title content="item 1" />
         <ChiAccordion.Panel>${lipsum}</ChiAccordion.Panel>
     </ChiAccordion.Item>

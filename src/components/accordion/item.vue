@@ -11,6 +11,7 @@
 <script setup lang="ts">
 import { computed, inject, provide } from 'vue'
 import { injectAccordionName, injectAccordionItemName, itemProps, AccordionProps, AccordionItemProps, InjectedAccordion } from './accordion.typings'
+import useApplyColor from '../../composables/methods/styles/useApplyColor'
 import useApplyRounded from '../../composables/methods/styles/useApplyRounded'
 import useGenerateProps from '../../composables/useGenerateProps'
 
@@ -26,6 +27,14 @@ const classes = computed((): Array<string> => {
 })
 const styles = computed((): object => {
     return {
+        ...useApplyColor(null, null,
+            getPropState('color'),
+            getPropState('variant'),
+            getPropState('backgroundColor'),
+            getPropState('borderColor'),
+            getPropState('textColor'),
+            getPropState('shadowColor')
+        ),
         ...(accordion.spacingY !== 0 ? useApplyRounded(getPropState('rounded')) : {}),
     }
 })

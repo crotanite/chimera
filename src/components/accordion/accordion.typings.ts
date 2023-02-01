@@ -26,7 +26,7 @@ export interface AccordionProps extends
 {}
 
 export const accordionPropsOptions = {
-    color: ['color', 'variant'],
+    color: ['color', 'borderColor', 'variant'],
     spacing: ['spacingY'],
 }
 
@@ -56,7 +56,7 @@ export interface AccordionItemProps extends
 }
 
 export const itemProps = {
-    ...useColorProps(),
+    ...useColorProps(accordionPropsOptions.color),
     ...useComponentProps(),
     ...useDisabledProps(),
     ...useIconProps(),
@@ -83,24 +83,20 @@ export interface InjectedAccordionItem extends
 }
 
 export interface AccordionTitleProps extends
-    ColorProps,
     ComponentProps,
     ContentProps
 {}
 
 export const titleProps = {
-    ...useColorProps(),
     ...useComponentProps(),
     ...useContentProps(),
 }
 
 export interface AccordionPanelProps extends
-    ColorProps,
     ComponentProps
 {}
 
 export const panelProps = {
-    ...useColorProps(),
     ...useComponentProps(),
 }
 
