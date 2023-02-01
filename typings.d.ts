@@ -17,6 +17,8 @@ declare module "@lumite-studios/chimera" {
     export const ChiInput: any
     export const ChiInputWithLabel: any
     export const ChiLabel: any
+    export const ChiNativeSelect: any
+    export const ChiNativeSelectWithLabel: any
     export const ChiToggle: any
     export const ChiToggleWithLabel: any
     export const ChiGrid: any
