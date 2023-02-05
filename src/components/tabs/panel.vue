@@ -10,6 +10,7 @@
 <script setup lang="ts">
 import { computed, inject, ref } from 'vue'
 import { tabsTabProps, injectTabsName, InjectedTabsProps, TabsTabProps } from './tabs.typings'
+import useApplyColor from '../../composables/methods/styles/useApplyColor'
 import useApplyPadding from '../../composables/methods/styles/useApplyPadding'
 import useGenerateProps from '../../composables/useGenerateProps'
 
@@ -25,6 +26,12 @@ const classes = computed((): Array<string> => {
 })
 const styles = computed(() => {
     return {
+        ...useApplyColor(
+            null,
+            null,
+            getPropState('color', 'system'),
+            getPropState('variant', 'filled')
+        ),
         ...useApplyPadding(getPropState('p'), getPropState('px'), getPropState('py')),
     }
 })

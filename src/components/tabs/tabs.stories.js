@@ -49,9 +49,9 @@ export const Default = (args) => ({
     template: `
 <ChiTabs v-bind="args">
     <template #list>
-        <ChiTabs.Tab color="blue" value="first">First Tab</ChiTabs.Tab>
-        <ChiTabs.Tab color="green" value="second">Second Tab</ChiTabs.Tab>
-        <ChiTabs.Tab color="red" value="third">Third Tab</ChiTabs.Tab>
+        <ChiTabs.Tab value="first">First Tab</ChiTabs.Tab>
+        <ChiTabs.Tab value="second">Second Tab</ChiTabs.Tab>
+        <ChiTabs.Tab value="third">Third Tab</ChiTabs.Tab>
     </template>
     <ChiTabs.Panel value="first">first panel</ChiTabs.Panel>
     <ChiTabs.Panel value="second">second panel</ChiTabs.Panel>

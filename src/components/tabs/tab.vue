@@ -25,8 +25,8 @@ const tabs = inject(injectTabsName, null) as InjectedTabsProps
 const hover = ref<boolean>(false)
 const classes = computed((): Array<string> => {
     return [
-        'cursor-pointer text-sm',
-        getPropState('variant') === 'transparent' ? 'border-b-2 -mb-[2px] !rounded-b-none' : null,
+        'cursor-pointer text-sm !rounded-b-none',
+        getPropState('variant') === 'transparent' ? 'border-b-2 -mb-[2px]' : null,
     ]
 })
 const styles = computed(() => {
