@@ -14,6 +14,7 @@ export interface OffcanvasDrawerProps extends
 {
     breakpoints: Array<keyof Sizes<string>>
     forceHide?: boolean
+    show?: boolean
     side: 'left'|'right'
 }
 

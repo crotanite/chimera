@@ -494,7 +494,7 @@ export const ChimeraTheme: Theme = {
         buttonGroup: {
             border: 0,
             color: 'primary',
-            component: 'div',
+            component: 'button',
             dense: false,
             disabled: false,
             forceText: null,

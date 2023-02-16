@@ -1,3 +1,4 @@
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/vue/24/solid'
 import { ChiOffcanvas, offcanvasDrawerArgs, offcanvasDrawerArgTypes } from './index'
 import { slotArgType } from '../../composables/useStoryArgTypes'
 import { colorArgs, colorArgTypes } from '../../composables/props/useColorProps'
@@ -32,13 +33,22 @@ export const Default = (args) => ({
     components: {
         ChiOffcanvas,
         'ChiOffcanvas.Drawer':ChiOffcanvas.Drawer,
-        'ChiOffcanvas.Content': ChiOffcanvas.Content
+        'ChiOffcanvas.Content': ChiOffcanvas.Content,
+        ChevronLeftIcon,
+        ChevronRightIcon
     },
     setup() { return { args } },
     template: `
 <ChiOffcanvas v-bind="args">
     <ChiOffcanvas.Drawer>drawer</ChiOffcanvas.Drawer>
-    <ChiOffcanvas.Content>content</ChiOffcanvas.Content>
+    <ChiOffcanvas.Content>
+        <button @click="$emit('open-drawer', { side: 'left' })">
+            <ChevronLeftIcon class="h-4 w-4" />
+        </button>
+        <button @click="$emit('open-drawer', { side: 'right' })">
+            <ChevronRightIcon class="h-4 w-4" />
+        </button>
+    </ChiOffcanvas.Content>
 </ChiOffcanvas>
     `,
 })

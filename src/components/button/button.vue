@@ -2,6 +2,7 @@
     <component
         :is="props.component"
         :class="classes"
+        :disabled="disabled"
         :style="styles"
         @mouseover="hover = true"
         @mouseleave="hover = false"
@@ -36,6 +37,7 @@ import useApplyRounded from '../../composables/methods/styles/useApplyRounded'
 import useApplyShadow from '../../composables/methods/styles/useApplyShadow'
 import useApplySizePadding from '../../composables/methods/styles/useApplySizePadding'
 import useGenerateProps from '../../composables/useGenerateProps'
+import useWatchProps from '../../composables/useWatchProps'
 
 const setProps = defineProps(buttonProps)
 const props = ref<ButtonProps>(useGenerateProps(setProps, 'button', 'buttonGroup') as ButtonProps)
@@ -73,10 +75,11 @@ const styles = computed(() => {
 
 /**
  * Fetch a prop state from the item or the parent.
- * @param prop The prop to fetch.
- * @param defaultValue The default value to use.
+ * @param {string} prop The prop to fetch.
+ * @param {any} defaultValue The default value to use.
+ * @returns {any}
  */
-const getPropState = (prop: string, defaultValue: any = null) => {
+const getPropState = (prop: string, defaultValue: any = null): any => {
     return props.value[prop] === null || typeof props.value[prop] === 'undefined'
         ? (buttonGroup === null ? defaultValue : buttonGroup[prop])
         : props.value[prop]
