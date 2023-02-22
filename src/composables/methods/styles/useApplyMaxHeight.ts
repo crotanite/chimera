@@ -8,7 +8,7 @@ export default function useApplyMaxHeight (
     overrideMaxHeight: HeightProps['maxHeight'] = null,
 ): useApplyMaxHeightOutput {
     const ctx = getCurrentInstance()
-    const maxHeightProp: HeightProps['maxHeight'] = overrideMaxHeight === null ? ((ctx?.props.height as HeightProps['maxHeight']) ?? null) : overrideMaxHeight
+    const maxHeightProp: HeightProps['maxHeight'] = overrideMaxHeight === null ? ((ctx?.props.maxHeight as HeightProps['maxHeight']) ?? null) : overrideMaxHeight
 
     if (maxHeightProp === null) {
         return null
