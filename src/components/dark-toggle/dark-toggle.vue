@@ -8,7 +8,6 @@
 </template>
 
 <script setup lang="ts">
-import { MoonIcon, SunIcon } from '@heroicons/vue/24/solid'
 import { isDark } from '../../composables/useDark'
 import { ChiToggle } from '../../components/form/toggle'
 </script>

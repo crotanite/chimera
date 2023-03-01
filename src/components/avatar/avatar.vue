@@ -17,7 +17,6 @@
 
 <script setup lang="ts">
 import { computed, inject, useSlots } from 'vue'
-import { UserCircleIcon } from '@heroicons/vue/24/outline'
 import avatarProps, { injectAvatarGroupName, AvatarProps, AvatarGroupProps } from './avatar.typings'
 import useGetThemeProperty from '../../composables/useGetThemeProperty'
 import useApplyBorder from '../../composables/methods/styles/useApplyBorder'

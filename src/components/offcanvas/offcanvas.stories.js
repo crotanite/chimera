@@ -1,4 +1,3 @@
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/vue/24/solid'
 import { ChiOffcanvas, offcanvasDrawerArgs, offcanvasDrawerArgTypes } from './index'
 import { slotArgType } from '../../composables/useStoryArgTypes'
 import { colorArgs, colorArgTypes } from '../../composables/props/useColorProps'

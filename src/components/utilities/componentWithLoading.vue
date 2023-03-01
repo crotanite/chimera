@@ -6,7 +6,6 @@
 </template>
 
 <script setup lang="ts">
-import { ArrowPathIcon } from '@heroicons/vue/24/outline'
 defineProps({
     component: {
         type: Function,

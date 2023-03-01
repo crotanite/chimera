@@ -1,4 +1,3 @@
-import { PlusIcon } from '@heroicons/vue/24/outline'
 import { ChiAccordion, accordionPropsOptions } from './index'
 import { ChiScreen } from '../screen'
 import { slotArgType, lipsum } from '../../composables/useStoryArgTypes'
@@ -80,7 +79,6 @@ export const Default = (args) => ({
 export const CustomControl = (args) => ({
     components: {
         ChiAccordion,
-        PlusIcon,
         'ChiAccordion.Item': ChiAccordion.Item,
         'ChiAccordion.Title': ChiAccordion.Title,
         'ChiAccordion.Panel': ChiAccordion.Panel

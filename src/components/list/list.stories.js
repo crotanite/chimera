@@ -1,4 +1,3 @@
-import { ArrowDownOnSquareIcon } from '@heroicons/vue/24/outline'
 import { ChiList, listPropsOptions } from './index'
 import { ChiScreen } from '../screen'
 import { slotArgType } from '../../composables/useStoryArgTypes'

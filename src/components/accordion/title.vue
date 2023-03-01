@@ -21,7 +21,6 @@
 
 <script setup lang="ts">
 import { computed, inject } from 'vue'
-import { ChevronDownIcon } from '@heroicons/vue/24/outline'
 import { injectAccordionItemName, titleProps, AccordionTitleProps, InjectedAccordionItem } from './accordion.typings'
 import useApplyPadding from '../../composables/methods/styles/useApplyPadding'
 import useGenerateProps from '../../composables/useGenerateProps'

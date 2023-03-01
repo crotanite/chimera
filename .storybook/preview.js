@@ -1,8 +1,12 @@
 import './tailwind.css'
+import { app } from '@storybook/vue3'
 import { addons } from '@storybook/addons'
 import Store from 'storybook-darkmode-vue/src/Store'
 import { isDark } from '../src/composables/useDark'
 import { withSource } from './withSource'
+import { plugin as FormKitPlugin, defaultConfig } from '@formkit/vue'
+import { createProPlugin, inputs } from '@formkit/pro'
+import config from './formkit.config.js'
 
 const channel = addons.getChannel()
 channel.on('STORYBOOK_DARK_MODE_VUE', (state) => {
@@ -32,3 +36,6 @@ export const parameters = {
         },
     }
 }
+
+const pro = createProPlugin('fk-49a0a63660', inputs)
+app.use(FormKitPlugin, defaultConfig({...config, ...{ plugins: [pro] }}))
