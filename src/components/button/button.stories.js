@@ -120,8 +120,8 @@ export const WithIcon = (args) => ({
 })
 WithIcon.args = {
     content: 'Download',
-    prefix: ArrowDownOnSquareIcon,
-    suffix: ArrowDownOnSquareIcon,
+    // prefix: ArrowDownOnSquareIcon,
+    // suffix: ArrowDownOnSquareIcon,
 }
 
 export const Grouped = (args) => ({

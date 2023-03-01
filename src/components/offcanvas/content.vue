@@ -1,6 +1,8 @@
 <template>
     <div :class="classes" :style="styles">
-        <slot />
+        <slot
+            @open-drawer="openDrawer"
+        />
     </div>
 </template>
 
@@ -11,6 +13,7 @@ import useApplyPadding from '../../composables/methods/styles/useApplyPadding'
 import useGenerateProps from '../../composables/useGenerateProps'
 
 const setProps = defineProps(offcanvasContentProps)
+const emits = defineEmits('open-drawer')
 const props = useGenerateProps(setProps, 'offcanvasContent') as OffcanvasContentProps
 
 const classes = computed((): Array<string> => {
@@ -23,6 +26,10 @@ const styles = computed(() => {
         ...useApplyPadding(props.p, props.px, props.py),
     }
 })
+
+const openDrawer = () => {
+    console.log('content openDrawer')
+}
 </script>
 
 <script lang="ts">

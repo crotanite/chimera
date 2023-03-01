@@ -102,6 +102,6 @@ export const WithIcons = (args) => ({
     `,
 })
 WithIcons.args = {
-    prefix: ArrowDownOnSquareIcon,
-    suffix: ArrowDownOnSquareIcon,
+    // prefix: ArrowDownOnSquareIcon,
+    // suffix: ArrowDownOnSquareIcon,
 }

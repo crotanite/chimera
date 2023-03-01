@@ -7,14 +7,14 @@
     >
         <div v-if="!item.customControl && !item.disabled && getPropState('iconSide') === 'left'">
             <component class="h-4 w-4" :is="getPropState('icon')" v-if="getPropState('icon') !== null" />
-            <ChevronDownIcon :class="['h-4 w-4 transition-transform', { 'rotate-180': item.isOpen.value }]" v-else />
+            <!-- <ChevronDownIcon :class="['h-4 w-4 transition-transform', { 'rotate-180': item.isOpen.value }]" v-else /> -->
         </div>
         <div class="grow">
             <slot :toggle="toggle">{{ content }}</slot>
         </div>
         <div v-if="!item.customControl && !item.disabled && getPropState('iconSide') === 'right'">
             <component class="h-4 w-4" :is="getPropState('icon')" v-if="getPropState('icon') !== null" />
-            <ChevronDownIcon :class="['h-4 w-4 transition-transform', { 'rotate-180': item.isOpen.value }]" v-else />
+            <!-- <ChevronDownIcon :class="['h-4 w-4 transition-transform', { 'rotate-180': item.isOpen.value }]" v-else /> -->
         </div>
     </component>
 </template>

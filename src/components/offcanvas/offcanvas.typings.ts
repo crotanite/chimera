@@ -2,6 +2,7 @@ import { extendedSizes, Sizes } from '../../theme'
 import useColorProps, { ColorProps } from '../../composables/props/useColorProps'
 import useComponentProps, { ComponentProps } from '../../composables/props/useComponentProps'
 import usePaddingProps, { PaddingProps } from '../../composables/props/usePaddingProps'
+import useValueProps, { ValueProps } from '../../composables/props/useValueProps'
 import useWidthProps, { WidthProps } from '../../composables/props/useWidthProps'
 
 export interface OffcanvasProps {}
@@ -10,6 +11,7 @@ export interface OffcanvasDrawerProps extends
     ColorProps,
     ComponentProps,
     PaddingProps,
+    ValueProps,
     WidthProps
 {
     breakpoints: Array<keyof Sizes<string>>
@@ -37,6 +39,7 @@ export const offcanvasDrawerProps = {
     ...useColorProps(['color', 'variant']),
     ...useComponentProps(),
     ...usePaddingProps(),
+    ...useValueProps({ value: 'drawer' }),
     ...useWidthProps({ width: null }, false),
 
     forceHide: {
@@ -110,3 +113,5 @@ export function offcanvasDrawerArgTypes (props: OffcanvasDrawerProps) {
         },
     }
 }
+
+export const injectOffcanvasName = 'offcanvas'
