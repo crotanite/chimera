@@ -11,6 +11,7 @@ declare module "@lumite-studios/chimera" {
     export const ChiColumn: any
     export const ChiDarkToggle: any
     export const ChiDiv: any
+    export const ChiDropdown: any
     export const ChiFlex: any
     export const ChiForm: any
     export const ChiError: any
