@@ -54,7 +54,7 @@ const openAtScreen = computed((): boolean => {
 })
 /** Whether the drawer is open/closed. */
 const showDrawer = computed((): boolean => {
-    return !setProps.forceHide && (openAtScreen.value || (!openAtScreen.value && offcanvas.openDrawers.value.includes(props.value)))
+    return (!setProps.forceHide && openAtScreen.value) || (!openAtScreen.value && offcanvas.openDrawers.value.includes(props.value))
 })
 
 onClickOutside(target, (event) => {

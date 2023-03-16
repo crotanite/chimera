@@ -26,12 +26,6 @@ const classes = computed((): Array<string> => {
 })
 const styles = computed(() => {
     return {
-        ...useApplyColor(
-            null,
-            null,
-            getPropState('color', 'system'),
-            getPropState('variant', 'filled')
-        ),
         ...useApplyPadding(getPropState('p'), getPropState('px'), getPropState('py')),
     }
 })

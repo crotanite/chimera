@@ -6,15 +6,13 @@
         @mouseover="hover = true"
         @mouseleave="hover = false"
     >
-        <UtilComponentWithLoading
-            class="h-4"
-            :component="props.prefix"
-        />
+        <slot name="prefix">
+            <UtilComponentWithLoading :component="props.prefix" />
+        </slot>
         <div class="grow"><slot>{{ props.content }}</slot></div>
-        <UtilComponentWithLoading
-            class="h-4"
-            :component="props.suffix"
-        />
+        <slot name="suffix">
+            <UtilComponentWithLoading :component="props.suffix" />
+        </slot>
     </component>
 </template>
 

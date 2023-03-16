@@ -31,7 +31,7 @@ export const Default = (args) => ({
     setup() { return { args } },
     template: `
 <ChiThemeProvider v-bind="args">
-    <ChiDiv color="primary" content="Primary Color" variant="filled" />
+    <ChiDiv color="primary" content="Primary Color" :px="{ xxs: 'md', md: 'lg' }" :py="{ xxs: 'xs', md: 'md' }" variant="filled" />
 </ChiThemeProvider>
     `,
 })

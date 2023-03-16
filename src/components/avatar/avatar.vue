@@ -1,18 +1,13 @@
 <template>
-    <div
-        :class="classes"
-        :style="styles"
-    >
-        <img class="h-full w-full" :src="src" v-if="hasSrc" />
-        <div class="flex items-center justify-center h-full w-full font-bold" v-else-if="hasDefaultSlot">
-            <slot />
-        </div>
-        <slot name="fallback" v-else>
-            <div class="flex items-center justify-center p-1">
-                <UserCircleIcon class="h-full w-full" />
-            </div>
-        </slot>
+    <img class="h-full w-full" :src="src" :style="styles" v-if="hasSrc" />
+    <div class="flex items-center justify-center h-full w-full font-bold" :style="styles" v-else-if="hasDefaultSlot">
+        <slot />
     </div>
+    <slot name="fallback" v-else>
+        <div class="flex items-center justify-center p-1" :style="styles">
+            <slot name="fallback-icon">x</slot>
+        </div>
+    </slot>
 </template>
 
 <script setup lang="ts">
@@ -29,11 +24,6 @@ const setProps = defineProps(avatarProps)
 const props = useGenerateProps(setProps, 'avatar') as AvatarProps
 
 const avatarGroup = inject(injectAvatarGroupName, null) as AvatarGroupProps
-const classes = computed((): Array<string> => {
-    return [
-        'overflow-hidden inline-block',
-    ]
-})
 const styles = computed(() => {
     return {
         ...useApplyBorder(getPropState('border', avatarGroupProps.border)),

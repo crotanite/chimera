@@ -53,4 +53,28 @@ export const tabsTabProps = {
 
 export const injectTabsName = 'tabs'
 
+export function tabsArgs (props: TabsProps) {
+    return {
+        vertical: props.vertical
+    }
+}
+
+export function tabsArgTypes (props: TabsProps) {
+    return {
+        vertical: {
+            control: { type: 'boolean' },
+            description: 'Whether to show the component dense.',
+            table: {
+                category: 'props',
+                defaultValue: {
+                    summary: false
+                },
+                type: {
+                    summary: 'boolean'
+                },
+            }
+        }
+    }
+}
+
 export default tabsProps

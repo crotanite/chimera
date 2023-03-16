@@ -1,4 +1,4 @@
-import { ChiTabs, tabsPropsOptions } from './index'
+import { ChiTabs, tabsPropsOptions, tabsArgs, tabsArgTypes } from './index'
 import { ChiScreen } from '../screen'
 import { slotArgType } from '../../composables/useStoryArgTypes'
 import { colorArgs, colorArgTypes } from '../../composables/props/useColorProps'
@@ -27,6 +27,7 @@ export default {
         ...modelValueArgs({ modelValue: 'first' }),
         ...paddingArgs(tabsProps),
         ...roundedArgs(tabsProps),
+        ...tabsArgs(tabsProps),
     },
     argTypes: {
         ...colorArgTypes(tabsProps, tabsPropsOptions.color),
@@ -34,6 +35,7 @@ export default {
         ...modelValueArgTypes(tabsProps),
         ...paddingArgTypes(tabsProps),
         ...roundedArgTypes(tabsProps),
+        ...tabsArgTypes(tabsProps),
         list: slotArgType('list'),
         default: slotArgType('default'),
     },
