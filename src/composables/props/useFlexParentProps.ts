@@ -26,28 +26,24 @@ export default function useFlexParentProps (includeProps: Array<string> = defaul
             flexDirection: {
                 type: [String, Object],
                 default: undefined,
-                validator: (v: string) => directionOptions.includes(v)
             },
         } : {}),
         ...(includeProps.includes('flexItems') ? {
             flexItems: {
                 type: [String, Object],
                 default: undefined,
-                validator: (v: string) => itemsOptions.includes(v)
             },
         } : {}),
         ...(includeProps.includes('flexJustify') ? {
             flexJustify: {
                 type: [String, Object],
                 default: undefined,
-                validator: (v: string) => justifyOptions.includes(v)
             },
         } : {}),
         ...(includeProps.includes('flexWrap') ? {
             flexWrap: {
                 type: [String, Object],
                 default: undefined,
-                validator: (v: string) => wrapOptions.includes(v)
             },
         } : {}),
     }
