@@ -1,29 +1,26 @@
 import { extendedSizes, Sizes } from '../../theme'
 
 export interface PaddingProps {
-    p: null|string|number
-    px: null|string|number
-    py: null|string|number
+    p: null|string|number|Sizes<number|string>
+    px: null|string|number|Sizes<number|string>
+    py: null|string|number|Sizes<number|string>
 }
 
 export default function usePaddingProps () {
     return {
         p: {
-            type: [String, Number],
+            type: [String, Number, Object as () => Sizes<number|string>],
             default: undefined,
-            validator: (v: keyof Sizes<string>|number) => typeof v === 'number' || extendedSizes.includes(v),
         },
 
         px: {
-            type: [String, Number],
+            type: [String, Number, Object as () => Sizes<number|string>],
             default: undefined,
-            validator: (v: keyof Sizes<string>|number) => typeof v === 'number' || extendedSizes.includes(v),
         },
 
         py: {
-            type: [String, Number],
+            type: [String, Number, Object as () => Sizes<number|string>],
             default: undefined,
-            validator: (v: keyof Sizes<string>|number) => typeof v === 'number' || extendedSizes.includes(v),
         }
     }
 }

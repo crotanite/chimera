@@ -1,6 +1,7 @@
 import { getCurrentInstance } from 'vue'
 import { PaddingProps } from '../../props/usePaddingProps'
 import useGetThemeProperty from '../../useGetThemeProperty'
+import useGetValueForScreen from '../../useGetValueForScreen'
 
 export type useApplyPaddingOutput = null|{ padding: string }
 
@@ -18,39 +19,63 @@ export default function useApplyPadding (
         return null
     }
 
-    let padding: string
+    let padding: Array<string> = []
 
     if (py !== null) {
         if (typeof py === 'number') {
-            padding = `${py}px`
+            padding.push(`${py}px`)
+        } else if(typeof py === 'string') {
+            padding.push(useGetThemeProperty(`spacing.${py}`))
         } else {
-            padding = useGetThemeProperty(`spacing.${py}`)
+            const value = useGetValueForScreen<number|string>(py)
+            if (typeof value === 'number') {
+                padding.push(`${value}px`)
+            } else {
+                padding.push(useGetThemeProperty(`spacing.${value}`))
+            }
         }
     } else if (p !== null) {
         if (typeof p === 'number') {
-            padding = `${p}px`
+            padding.push(`${p}px`)
+        } else if(typeof p === 'string') {
+            padding.push(useGetThemeProperty(`spacing.${p}`))
         } else {
-            padding = useGetThemeProperty(`spacing.${p}`)
+            const value = useGetValueForScreen<number|string>(p)
+            if (typeof value === 'number') {
+                padding.push(`${value}px`)
+            } else {
+                padding.push(useGetThemeProperty(`spacing.${value}`))
+            }
         }
-    } else {
-        padding = '0'
     }
 
     if (px !== null) {
         if (typeof px === 'number') {
-            padding += ` ${px}px`
+            padding.push(`${px}px`)
+        } else if(typeof px === 'string') {
+            padding.push(useGetThemeProperty(`spacing.${px}`))
         } else {
-            padding += ` ${useGetThemeProperty(`spacing.${px}`)}`
+            const value = useGetValueForScreen<number|string>(px)
+            if (typeof value === 'number') {
+                padding.push(`${value}px`)
+            } else {
+                padding.push(useGetThemeProperty(`spacing.${value}`))
+            }
         }
     } else if (p !== null) {
         if (typeof p === 'number') {
-            padding += ` ${p}px`
+            padding.push(`${p}px`)
+        } else if(typeof p === 'string') {
+            padding.push(useGetThemeProperty(`spacing.${p}`))
         } else {
-            padding += ` ${useGetThemeProperty(`spacing.${p}`)}`
+            const value = useGetValueForScreen<number|string>(p)
+            if (typeof value === 'number') {
+                padding.push(`${value}px`)
+            } else {
+                padding.push(useGetThemeProperty(`spacing.${value}`))
+            }
         }
-    } else {
-        padding += ' 0'
     }
 
-    return { padding }
+    return { padding: padding.join(' ') }
 }
